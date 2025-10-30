@@ -4,6 +4,9 @@ import { AppService } from './app.service';
 import { UsersModule } from './modules/users/users.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserGroup } from './shared/entities/user-group.entity';
+import { User } from './shared/entities/user.entity';
+import { UserSetting } from './shared/entities/user-setting.entity';
 
 @Module({
   imports: [
@@ -15,7 +18,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [],
+      entities: [UserGroup, User, UserSetting],
       synchronize: true, // dev only
       logging: true, // SQL 쿼리 로그 출력
     }),
