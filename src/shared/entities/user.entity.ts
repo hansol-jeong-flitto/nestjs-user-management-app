@@ -14,7 +14,7 @@ import { UserSetting } from './user-setting.entity';
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
-  id: string;
+  id: number;
 
   @Column()
   email: string;
