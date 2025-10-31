@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './modules/users/users.module';
+import { UserModule } from './modules/users/user.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserGroup } from './shared/entities/user-group.entity';
@@ -24,7 +24,7 @@ import { UserGroupModule } from './modules/user-groups/user-groups.module';
       logging: true, // SQL 쿼리 로그 출력
     }),
     UserGroupModule,
-    UsersModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
