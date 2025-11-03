@@ -10,25 +10,25 @@ import {
 } from '@nestjs/common';
 import { CreateUserGroupDto } from './dto/create-user-group.dto';
 import { UpdateUserGroupDto } from './dto/update-user-group.dto';
-import { UserGroupService } from './user-groups.service';
+import { UserGroupService } from './user-group.service';
 
 @Controller('user-groups')
 export class UserGroupController {
-  constructor(private readonly userGroupsService: UserGroupService) {}
+  constructor(private readonly userGroupService: UserGroupService) {}
 
   @Get()
   findAll() {
-    return this.userGroupsService.findAll();
+    return this.userGroupService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.userGroupsService.findOne(id);
+    return this.userGroupService.findOne(id);
   }
 
   @Post()
   create(@Body() createUserGroupDto: CreateUserGroupDto) {
-    return this.userGroupsService.create(createUserGroupDto);
+    return this.userGroupService.create(createUserGroupDto);
   }
 
   @Patch(':id')
@@ -36,11 +36,11 @@ export class UserGroupController {
     @Param('id', ParseIntPipe) id: number,
     @Body() updateUserGroupDto: UpdateUserGroupDto,
   ) {
-    return this.userGroupsService.update(id, updateUserGroupDto);
+    return this.userGroupService.update(id, updateUserGroupDto);
   }
 
   @Delete(':id')
   remove(@Param('id', ParseIntPipe) id: number) {
-    return this.userGroupsService.remove(id);
+    return this.userGroupService.remove(id);
   }
 }
