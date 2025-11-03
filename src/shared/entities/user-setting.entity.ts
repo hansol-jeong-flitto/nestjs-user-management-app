@@ -15,7 +15,7 @@ export class UserSetting {
   id: number;
 
   @Column()
-  user_id: string;
+  user_id: number;
 
   @Column()
   language: string;

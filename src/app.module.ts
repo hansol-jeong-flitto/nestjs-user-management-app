@@ -8,6 +8,7 @@ import { UserGroup } from './shared/entities/user-group.entity';
 import { User } from './shared/entities/user.entity';
 import { UserSetting } from './shared/entities/user-setting.entity';
 import { UserGroupModule } from './modules/user-groups/user-groups.module';
+import { UserSettingModule } from './modules/user-settings/user-setting.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { UserGroupModule } from './modules/user-groups/user-groups.module';
     }),
     UserGroupModule,
     UserModule,
+    UserSettingModule,
   ],
   controllers: [AppController],
   providers: [AppService],
