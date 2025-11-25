@@ -11,5 +11,5 @@ export class CreateUserDto {
   password: string;
 
   @IsInt()
-  userGroupId: number;
+  user_group_id: number;
 }
