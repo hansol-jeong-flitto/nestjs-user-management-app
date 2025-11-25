@@ -25,6 +25,6 @@ export class UserGroup {
   @UpdateDateColumn()
   updated_at: Date;
 
-  @OneToMany(() => User, (user) => user.user_group_id)
+  @OneToMany(() => User, (user) => user.user_group)
   users: User[];
 }

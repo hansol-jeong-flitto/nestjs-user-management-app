@@ -25,9 +25,6 @@ export class User {
   @Column()
   password: string;
 
-  @Column()
-  user_group_id: number;
-
   @CreateDateColumn()
   created_at: Date;
 
