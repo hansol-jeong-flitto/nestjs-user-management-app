@@ -61,8 +61,22 @@ export class UserSettingService {
     id: number,
     updateUserSettingDto: UpdateUserSettingDto,
   ): Promise<UserSetting> {
-    await this.findOne(id);
-    await this.userSettingRepository.update(id, updateUserSettingDto);
-    return this.findOne(id);
+    const userSetting = await this.userSettingRepository.preload({
+      id,
+      ...updateUserSettingDto,
+    });
+
+    if (!userSetting) {
+      throw new NotFoundException(`UserSetting with id ${id} not found`);
+    }
+
+    return this.userSettingRepository.save(userSetting);
+  }
+
+  async remove(id: number): Promise<void> {
+    const result = await this.userSettingRepository.delete(id);
+    if (result.affected === 0) {
+      throw new NotFoundException(`UserSetting with id ${id} not found`);
+    }
   }
 }
