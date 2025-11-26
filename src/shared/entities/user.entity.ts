@@ -33,8 +33,8 @@ export class User {
 
   @ManyToOne(() => UserGroup, (user_group) => user_group.users)
   @JoinColumn({ name: 'user_group_id' })
-  user_group: UserGroup;
+  user_group?: UserGroup;
 
   @OneToOne(() => UserSetting, (user_setting) => user_setting.user)
-  user_setting: UserSetting;
+  user_setting?: UserSetting;
 }

@@ -26,5 +26,5 @@ export class UserGroup {
   updated_at: Date;
 
   @OneToMany(() => User, (user) => user.user_group)
-  users: User[];
+  users?: User[];
 }
