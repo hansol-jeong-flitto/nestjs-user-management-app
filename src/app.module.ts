@@ -21,8 +21,6 @@ import { UserSettingModule } from './modules/user-settings/user-setting.module';
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
       entities: [UserGroup, User, UserSetting],
-      synchronize: true, // dev only
-      logging: true, // SQL 쿼리 로그 출력
     }),
     UserGroupModule,
     UserModule,
